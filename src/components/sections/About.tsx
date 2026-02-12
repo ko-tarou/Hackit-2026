@@ -106,13 +106,13 @@ export function About() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <span className="block text-6xl md:text-7xl lg:text-8xl font-black text-base-dark leading-none">
+              <span className="block text-7xl md:text-8xl lg:text-9xl font-black text-base-dark leading-none">
                 14
               </span>
               <span className="block mt-2 text-sm font-bold text-accent uppercase tracking-widest">
                 参加団体
               </span>
-              <p className="mt-1 text-sm text-base-dark/60 max-w-[200px] mx-auto">
+              <p className="mt-1 text-base md:text-lg text-base-dark/70 max-w-[240px] mx-auto">
                 KITの課外活動プロジェクトが連携
               </p>
             </motion.div>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const SPONSOR_TIERS = [
   { tier: "プラチナスポンサー", tierEn: "Platinum", count: 4, className: "w-56 h-28 md:w-72 md:h-36 flex-shrink-0", scroll: true },
-  { tier: "ゴールドスポンサー", tierEn: "Gold", count: 6, className: "w-40 h-20 md:w-52 md:h-26 flex-shrink-0", scroll: true },
+  { tier: "ゴールドスポンサー", tierEn: "Gold", count: 6, className: "w-40 h-20 md:w-52 md:h-26 flex-shrink-0", scroll: false },
   { tier: "シルバースポンサー", tierEn: "Silver", count: 8, className: "w-28 h-14 md:w-36 md:h-18 flex-shrink-0", scroll: false },
 ];
 
