@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FFFBF7;
+  --foreground: #2d2d2d;
+  --accent: #FF6B35;
+  --accent-light: #FF8C5A;
+  --accent-yellow: #FFD93D;
+  --accent-coral: #FF6B6B;
+  --accent-pink: #FF8EC7;
+  --accent-blue: #6BCBFF;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+/* 微細なノイズ感（設計図・エンジニアリングのメタファー） */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(45,45,45,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45,45,45,0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Smooth scroll & scroll snap */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+section {
+  scroll-snap-align: start;
+}
+
+/* 横スクロールのスクロールバー非表示 */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-snap-type: none;
+  }
+}
