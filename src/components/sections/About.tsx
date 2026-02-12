@@ -205,12 +205,25 @@ export function About() {
               <X className="w-6 h-6" />
             </button>
 
-            {/* カルーセルシーン */}
-            <div 
-              className="relative w-full max-w-[280px] xs:max-w-sm sm:max-w-md md:max-w-xl h-[280px] xs:h-[300px] sm:h-[350px] md:h-[400px] flex items-center justify-center px-12 sm:px-0"
-              style={{ perspective: '1200px' }}
-              onClick={(e) => e.stopPropagation()}
-            >
+            {/* カルーセル全体のコンテナ */}
+            <div className="relative w-full flex items-center justify-center px-14 sm:px-0 sm:gap-4 md:gap-8">
+              {/* 左ナビゲーションボタン */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevCard();
+                }}
+                className="absolute left-2 sm:static sm:flex-shrink-0 z-40 bg-white/70 hover:bg-white text-base-dark rounded-full p-1.5 sm:p-3 shadow-xl transition-all hover:scale-110"
+              >
+                <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
+              </button>
+
+              {/* カルーセルシーン */}
+              <div 
+                className="relative w-full max-w-[200px] xs:max-w-[240px] sm:max-w-md md:max-w-xl h-[280px] xs:h-[300px] sm:h-[350px] md:h-[400px] flex items-center justify-center"
+                style={{ perspective: '1200px' }}
+                onClick={(e) => e.stopPropagation()}
+              >
               {/* カルーセルコンテナ - 全体を回転 */}
               <motion.div
                 key={`carousel-${isModalOpen}`}
@@ -231,8 +244,9 @@ export function About() {
                   const cellSize = typeof window !== 'undefined' && window.innerWidth < 640 ? 240 : 360; // カードの幅（レスポンシブ）
                   const theta = (360 / numberOfCells);
                   const cellAngle = theta * index;
-                  // 円の半径を計算
-                  const radius = Math.round((cellSize / 2) / Math.tan(Math.PI / numberOfCells));
+                  // 円の半径を計算（1.5倍に拡大してスペースを確保）
+                  const baseRadius = Math.round((cellSize / 2) / Math.tan(Math.PI / numberOfCells));
+                  const radius = baseRadius * 1.5;
                   
                   // 現在のカードが正面かどうか
                   const isCurrent = index === currentIndex;
@@ -298,44 +312,35 @@ export function About() {
                 })}
               </motion.div>
 
-              {/* ナビゲーションボタン */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  prevCard();
-                }}
-                className="absolute left-0 sm:-left-4 top-1/2 -translate-y-1/2 z-40 bg-white/90 hover:bg-white text-base-dark rounded-full p-1.5 sm:p-3 shadow-xl transition-all hover:scale-110"
-              >
-                <ChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
-              </button>
-              
+                {/* インジケーター */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-40">
+                  {PARTICIPATING_GROUPS.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        goToIndex(index);
+                      }}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        index === currentIndex 
+                          ? 'bg-white w-8' 
+                          : 'bg-white/40 hover:bg-white/60'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* 右ナビゲーションボタン */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   nextCard();
                 }}
-                className="absolute right-0 sm:-right-4 top-1/2 -translate-y-1/2 z-40 bg-white/90 hover:bg-white text-base-dark rounded-full p-1.5 sm:p-3 shadow-xl transition-all hover:scale-110"
+                className="absolute right-2 sm:static sm:flex-shrink-0 z-40 bg-white/70 hover:bg-white text-base-dark rounded-full p-1.5 sm:p-3 shadow-xl transition-all hover:scale-110"
               >
                 <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
               </button>
-
-              {/* インジケーター */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-40">
-                {PARTICIPATING_GROUPS.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      goToIndex(index);
-                    }}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentIndex 
-                        ? 'bg-white w-8' 
-                        : 'bg-white/40 hover:bg-white/60'
-                    }`}
-                  />
-                ))}
-              </div>
             </div>
           </motion.div>
         )}
