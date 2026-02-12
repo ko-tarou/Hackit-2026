@@ -14,32 +14,32 @@ interface GroupInfo {
 const PARTICIPATING_GROUPS: GroupInfo[] = [
   {
     name: "スマプロ",
-    description: "Google Developer Group on Campus KITは、Googleの技術を学び、共有し、実践するコミュニティです。Web開発、モバイルアプリ開発、機械学習など幅広い分野で活動しています。",
+    description: "チーム開発を通してスマートフォンアプリやWebアプリの開発を行います。また、それらのアプリ開発を通して、地域の課題解決を目指すとともにチームメンバーが必要な技術を身につけます。",
     link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#sphone"
   },
   {
     name: "フードクリエイション",
-    description: "BusStopは、学生による学生のためのサービス開発プロジェクトです。大学生活をより便利で快適にするためのアプリケーションを開発しています。",
+    description: "株式会社ハチバンと協働し、「食」をテーマに、私達の街やパートナーを元気に、そして笑顔にする新しい価値創造を目指す。",
     link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#food8"
   },
   {
     name: "IoA",
-    description: "Internet of Abilitiesプロジェクトは、IoT技術を活用して人々の能力を拡張し、より良い社会を実現することを目指しています。",
+    description: "IoAとは人間の能力をInternetの力で拡張するという概念であり、それがこのプロジェクトの活動のテーマです。主にxR技術の活用に焦点を当て、学科横断でのプロジェクト実践に取り組みます。",
     link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#ioa"
   },
   {
     name: "Security Project",
-    description: "セキュリティプロジェクトは、情報セキュリティの知識を深め、実践的なスキルを身につけることを目的としています。CTFやペネトレーションテストなどに取り組んでいます。",
+    description: "ITセキュリティのスキルアップの勉強会を行い、企業の課題解決提案への取組みやコンピュータやネットワーク機器を使用してのプログラミング、ITセキュリティの実践的な技術を勉強します。",
     link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#security-up"
   },
   {
     name: "CirKit",
-    description: "DataDreamersは、データサイエンスと機械学習に焦点を当てたプロジェクトです。データ分析、可視化、予測モデルの構築などを通じて実践的なスキルを磨いています。",
+    description: "CirKitプロジェクトは「学生による価値創造と地域社会に貢献を」を理念として活動しています。ほかのプロジェクトと違う点は『株式会社』であることです。",
     link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#cirkit"
   },
   {
     name: "おもちゃ",
-    description: "KITの多様な課外活動プロジェクトが参加しています。それぞれの団体が持つ専門性と情熱を結集し、Hackitを盛り上げていきます。",
+    description: "こどもの成長や学びを促すための“おもちゃ”を開発するプロジェクトです。近隣の保育園や児童クラブなどに開発したおもちゃを提供する活動をしています。",
     link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#toy"
   },
 ];
