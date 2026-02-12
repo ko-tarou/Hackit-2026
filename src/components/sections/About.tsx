@@ -31,7 +31,7 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           <div className="space-y-10">
             <FadeInText>
-              <span className="text-sm font-medium tracking-[0.3em] text-accent mb-4">ハックイットとは</span>
+              <span className="text-sm font-medium tracking-[0.3em] text-accent mb-4">About</span>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-base-dark leading-tight">
                 Hackitとは？
               </h2>
@@ -70,12 +70,12 @@ export function About() {
 
             <FadeInText delay={0.2}>
               <div className="pt-6 border-t border-base-dark/10">
-                <p className="text-sm font-medium text-accent tracking-wider mb-3">参加団体数</p>
-                <div className="flex flex-wrap gap-2">
+                <p className="text-sm font-medium text-accent tracking-wider mb-4">参加団体</p>
+                <div className="flex flex-wrap gap-3 min-w-0">
                   {PARTICIPATING_GROUPS.map((group) => (
                     <span
                       key={group}
-                      className="px-3 py-1.5 bg-base-dark/5 text-base-dark/80 text-sm rounded-lg border border-base-dark/10 hover:border-accent/30 transition-colors"
+                      className="inline-flex px-4 py-2 bg-base-dark/5 text-base-dark/80 text-sm rounded-xl border border-base-dark/10 hover:border-accent/30 hover:bg-accent/5 transition-all duration-200 whitespace-nowrap"
                     >
                       {group}
                     </span>

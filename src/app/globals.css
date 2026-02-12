@@ -18,6 +18,12 @@ body {
   background: var(--background);
 }
 
+/* オーバースクロール時（上に引きすぎた時）に表示されるパステルグラデーション */
+@keyframes pastel-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
 /* 微細なノイズ感（設計図・エンジニアリングのメタファー） */
 body::before {
   content: "";
@@ -31,10 +37,20 @@ body::before {
   z-index: 9999;
 }
 
-/* Smooth scroll & scroll snap */
+/* Smooth scroll & scroll snap & オーバースクロール時のパステル背景 */
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
+  background: linear-gradient(
+    135deg,
+    #fff0f5 0%,
+    #f0f8ff 25%,
+    #f5fff0 50%,
+    #fff8f0 75%,
+    #f5f0ff 100%
+  );
+  background-size: 400% 400%;
+  animation: pastel-shift 8s ease infinite;
 }
 
 section {

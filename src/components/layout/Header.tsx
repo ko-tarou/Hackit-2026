@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const NAV_ITEMS = [
-  { label: "ハックイットとは", href: "#about" },
+  { label: "Hackitとは", href: "#about" },
   { label: "賞", href: "#awards" },
   { label: "スポンサー", href: "#sponsors" },
   { label: "スケジュール", href: "#schedule" },
@@ -43,12 +43,12 @@ export function Header() {
       >
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="text-lg font-bold text-base-dark hover:text-accent transition-colors"
+          className="text-lg font-bold text-base-dark hover:text-accent transition-colors mr-4 md:mr-8"
         >
           Hackit 2026
         </button>
 
-        <ul className="hidden md:flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-10">
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
               <button
