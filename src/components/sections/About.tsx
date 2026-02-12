@@ -1,16 +1,47 @@
 "use client";
 
 import { FadeInText, StaggerContainer, staggerItemVariants } from "@/components/animations";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-const PARTICIPATING_GROUPS = [
-  "GDGoC KIT",
-  "BusStop",
-  "IoA",
-  "Security Project",
-  "DataDreamers",
-  "他9団体",
+interface GroupInfo {
+  name: string;
+  description: string;
+  link: string;
+}
+
+const PARTICIPATING_GROUPS: GroupInfo[] = [
+  {
+    name: "スマプロ",
+    description: "チーム開発を通してスマートフォンアプリやWebアプリの開発を行います。また、それらのアプリ開発を通して、地域の課題解決を目指すとともにチームメンバーが必要な技術を身につけます。",
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#sphone"
+  },
+  {
+    name: "フードクリエイション",
+    description: "株式会社ハチバンと協働し、「食」をテーマに、私達の街やパートナーを元気に、そして笑顔にする新しい価値創造を目指す。",
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#food8"
+  },
+  {
+    name: "IoA",
+    description: "IoAとは人間の能力をInternetの力で拡張するという概念であり、それがこのプロジェクトの活動のテーマです。主にxR技術の活用に焦点を当て、学科横断でのプロジェクト実践に取り組みます。",
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#ioa"
+  },
+  {
+    name: "Security Project",
+    description: "ITセキュリティのスキルアップの勉強会を行い、企業の課題解決提案への取組みやコンピュータやネットワーク機器を使用してのプログラミング、ITセキュリティの実践的な技術を勉強します。",
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#security-up"
+  },
+  {
+    name: "CirKit",
+    description: "CirKitプロジェクトは「学生による価値創造と地域社会に貢献を」を理念として活動しています。ほかのプロジェクトと違う点は『株式会社』であることです。",
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#cirkit"
+  },
+  {
+    name: "おもちゃ",
+    description: "こどもの成長や学びを促すための“おもちゃ”を開発するプロジェクトです。近隣の保育園や児童クラブなどに開発したおもちゃを提供する活動をしています。",
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#toy"
+  },
 ];
 
 export function About() {
@@ -18,6 +49,42 @@ export function About() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const scale = useTransform(scrollYProgress, [0, 0.3], [0.95, 1]);
+  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [rotation, setRotation] = useState(0);
+
+  const handleGroupClick = (index: number) => {
+    setCurrentIndex(index);
+    setRotation(-index * (360 / PARTICIPATING_GROUPS.length));
+    setIsModalOpen(true);
+  };
+
+  const goToIndex = (targetIndex: number) => {
+    const numberOfCells = PARTICIPATING_GROUPS.length;
+    const anglePerCell = 360 / numberOfCells;
+    const currentAngle = rotation;
+    const targetAngle = -targetIndex * anglePerCell;
+    
+    // 最短距離を計算
+    let diff = targetAngle - currentAngle;
+    // -180 ~ 180 の範囲に正規化
+    while (diff > 180) diff -= 360;
+    while (diff < -180) diff += 360;
+    
+    setRotation(currentAngle + diff);
+    setCurrentIndex(targetIndex);
+  };
+
+  const nextCard = () => {
+    const nextIndex = (currentIndex + 1) % PARTICIPATING_GROUPS.length;
+    goToIndex(nextIndex);
+  };
+
+  const prevCard = () => {
+    const prevIndex = (currentIndex - 1 + PARTICIPATING_GROUPS.length) % PARTICIPATING_GROUPS.length;
+    goToIndex(prevIndex);
+  };
 
   return (
     <section
@@ -72,13 +139,14 @@ export function About() {
               <div className="pt-6 border-t border-base-dark/10">
                 <p className="text-sm font-medium text-accent tracking-wider mb-4">参加団体</p>
                 <div className="flex flex-wrap gap-3 min-w-0">
-                  {PARTICIPATING_GROUPS.map((group) => (
-                    <span
-                      key={group}
-                      className="inline-flex px-4 py-2 bg-base-dark/5 text-base-dark/80 text-sm rounded-xl border border-base-dark/10 hover:border-accent/30 hover:bg-accent/5 transition-all duration-200 whitespace-nowrap"
+                  {PARTICIPATING_GROUPS.map((group, index) => (
+                    <button
+                      key={group.name}
+                      onClick={() => handleGroupClick(index)}
+                      className="inline-flex px-4 py-2 bg-base-dark/5 text-base-dark/80 text-sm rounded-xl border border-base-dark/10 hover:border-accent/30 hover:bg-accent/5 transition-all duration-200 whitespace-nowrap cursor-pointer hover:scale-105"
                     >
-                      {group}
-                    </span>
+                      {group.name}
+                    </button>
                   ))}
                 </div>
               </div>
@@ -119,6 +187,159 @@ export function About() {
           </motion.div>
         </div>
       </div>
+
+      {/* 3Dカルーセルモーダル */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsModalOpen(false)}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-6 overflow-hidden"
+          >
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-6 right-6 z-50 text-white/70 hover:text-white transition-colors bg-black/20 rounded-full p-2"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* カルーセルシーン */}
+            <div 
+              className="relative w-full max-w-xl h-[400px] flex items-center justify-center"
+              style={{ perspective: '1200px' }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* カルーセルコンテナ - 全体を回転 */}
+              <motion.div
+                key={`carousel-${isModalOpen}`}
+                className="relative w-full h-full"
+                style={{ transformStyle: 'preserve-3d' }}
+                initial={{ rotateY: rotation }}
+                animate={{
+                  rotateY: rotation,
+                }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 100,
+                  damping: 20,
+                }}
+              >
+                {PARTICIPATING_GROUPS.map((group, index) => {
+                  const numberOfCells = PARTICIPATING_GROUPS.length;
+                  const cellSize = 360; // カードの幅
+                  const theta = (360 / numberOfCells);
+                  const cellAngle = theta * index;
+                  // 円の半径を計算
+                  const radius = Math.round((cellSize / 2) / Math.tan(Math.PI / numberOfCells));
+                  
+                  // 現在のカードが正面かどうか
+                  const isCurrent = index === currentIndex;
+
+                  return (
+                    <div
+                      key={group.name}
+                      className="absolute"
+                      style={{
+                        transformStyle: 'preserve-3d',
+                        left: '50%',
+                        top: '50%',
+                        width: '360px',
+                        transform: `translate(-50%, -50%) rotateY(${cellAngle}deg) translateZ(${radius}px)`,
+                      }}
+                    >
+                      <motion.div
+                        className="bg-white rounded-2xl shadow-2xl p-6 h-[220px] flex flex-col cursor-pointer"
+                        animate={{
+                          opacity: isCurrent ? 1 : 0.3,
+                        }}
+                        transition={{ duration: 0.3 }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (!isCurrent) {
+                            goToIndex(index);
+                          }
+                        }}
+                      >
+                        <h3 className="text-xl font-bold text-base-dark mb-3">
+                          {group.name}
+                        </h3>
+                        
+                        <AnimatePresence mode="wait">
+                          {isCurrent && (
+                            <motion.div
+                              key={`content-${index}`}
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              transition={{ duration: 0.3, delay: 0.2 }}
+                              className="flex-1 flex flex-col"
+                            >
+                              <p className="text-sm text-base-dark/70 leading-relaxed mb-4 flex-1">
+                                {group.description}
+                              </p>
+                              
+                              <a
+                                href={group.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-[#FFB380] text-white font-medium rounded-lg hover:bg-[#FFA366] transition-all duration-200 hover:scale-105 self-start shadow-md"
+                              >
+                                詳しく見る →
+                              </a>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    </div>
+                  );
+                })}
+              </motion.div>
+
+              {/* ナビゲーションボタン */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevCard();
+                }}
+                className="absolute -left-4 top-1/2 -translate-y-1/2 z-40 bg-white/90 hover:bg-white text-base-dark rounded-full p-3 shadow-xl transition-all hover:scale-110"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextCard();
+                }}
+                className="absolute -right-4 top-1/2 -translate-y-1/2 z-40 bg-white/90 hover:bg-white text-base-dark rounded-full p-3 shadow-xl transition-all hover:scale-110"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+
+              {/* インジケーター */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-40">
+                {PARTICIPATING_GROUPS.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      goToIndex(index);
+                    }}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      index === currentIndex 
+                        ? 'bg-white w-8' 
+                        : 'bg-white/40 hover:bg-white/60'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
