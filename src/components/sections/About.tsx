@@ -8,34 +8,39 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 interface GroupInfo {
   name: string;
   description: string;
-  link?: string;
+  link: string;
 }
 
 const PARTICIPATING_GROUPS: GroupInfo[] = [
   {
-    name: "GDGoC KIT",
+    name: "スマプロ",
     description: "Google Developer Group on Campus KITは、Googleの技術を学び、共有し、実践するコミュニティです。Web開発、モバイルアプリ開発、機械学習など幅広い分野で活動しています。",
-    link: "https://gdgoc-kit.github.io/"
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#sphone"
   },
   {
-    name: "BusStop",
+    name: "フードクリエイション",
     description: "BusStopは、学生による学生のためのサービス開発プロジェクトです。大学生活をより便利で快適にするためのアプリケーションを開発しています。",
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#food8"
   },
   {
     name: "IoA",
     description: "Internet of Abilitiesプロジェクトは、IoT技術を活用して人々の能力を拡張し、より良い社会を実現することを目指しています。",
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#ioa"
   },
   {
     name: "Security Project",
     description: "セキュリティプロジェクトは、情報セキュリティの知識を深め、実践的なスキルを身につけることを目的としています。CTFやペネトレーションテストなどに取り組んでいます。",
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#security-up"
   },
   {
-    name: "DataDreamers",
+    name: "CirKit",
     description: "DataDreamersは、データサイエンスと機械学習に焦点を当てたプロジェクトです。データ分析、可視化、予測モデルの構築などを通じて実践的なスキルを磨いています。",
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#cirkit"
   },
   {
-    name: "他9団体",
+    name: "おもちゃ",
     description: "KITの多様な課外活動プロジェクトが参加しています。それぞれの団体が持つ専門性と情熱を結集し、Hackitを盛り上げていきます。",
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#toy"
   },
 ];
 
@@ -275,17 +280,15 @@ export function About() {
                                 {group.description}
                               </p>
                               
-                              {group.link && (
-                                <a
-                                  href={group.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  onClick={(e) => e.stopPropagation()}
-                                  className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-accent text-white font-medium rounded-lg hover:bg-accent-light transition-all duration-200 hover:scale-105 self-start"
-                                >
-                                  詳しく見る →
-                                </a>
-                              )}
+                              <a
+                                href={group.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="inline-flex items-center gap-2 px-4 py-2 text-sm bg-[#FFB380] text-white font-medium rounded-lg hover:bg-[#FFA366] transition-all duration-200 hover:scale-105 self-start shadow-md"
+                              >
+                                詳しく見る →
+                              </a>
                             </motion.div>
                           )}
                         </AnimatePresence>
