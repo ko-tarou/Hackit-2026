@@ -56,7 +56,7 @@ function SlideContent({ phase }: { phase: SliderPhase }) {
   const isDarkText = phase.textColor === "dark";
 
   return (
-    <div className="absolute inset-0 flex flex-col px-6 md:px-16 lg:px-24 pt-20 pb-20">
+    <div className="absolute inset-0 flex flex-col px-4 sm:px-6 md:px-16 lg:px-24 pt-20 pb-16 sm:pb-20">
       {/* 背景レイヤー: Marquee / グリッド */}
       <Marquee text={MARQUEE_TEXT} opacity={0.08} dark={isDarkText} />
       <GridLines dark={isDarkText} />
@@ -73,20 +73,20 @@ function SlideContent({ phase }: { phase: SliderPhase }) {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="space-y-0.5 text-center"
+          className="space-y-0.5 text-center max-w-full"
         >
           {words.map((word, i) => (
             <motion.div
               key={i}
               variants={itemVariants}
-              className={`text-2xl md:text-3xl lg:text-4xl font-bold ${textClass(phase)} tracking-tight leading-[1.2]`}
+              className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold ${textClass(phase)} tracking-tight leading-[1.2] px-2`}
             >
               {word}
             </motion.div>
           ))}
         </motion.div>
         <motion.p
-          className={`mt-3 text-sm md:text-base ${textMutedClass(phase)} font-medium max-w-lg text-center`}
+          className={`mt-3 text-xs sm:text-sm md:text-base ${textMutedClass(phase)} font-medium max-w-xs sm:max-w-md md:max-w-lg text-center px-4`}
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
@@ -144,7 +144,7 @@ export function HeroSlider() {
 
   return (
     <motion.section
-      className="relative min-h-screen min-h-[100dvh] overflow-hidden snap-start"
+      className="relative min-h-[100dvh] overflow-hidden snap-start"
       animate={{ backgroundColor: phase.bgColor }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
     >
