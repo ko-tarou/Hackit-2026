@@ -23,22 +23,22 @@ export function Sponsors() {
   return (
     <section
       id="sponsors"
-      className="relative min-h-screen py-32 md:py-48 px-6 md:px-16 lg:px-24 bg-base overflow-hidden snap-start"
+      className="relative min-h-screen py-20 sm:py-32 md:py-48 px-4 sm:px-6 md:px-16 lg:px-24 bg-base overflow-hidden snap-start"
     >
       {/* 薄いグリッド */}
       <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#2d2d2d_1px,transparent_1px),linear-gradient(to_bottom,#2d2d2d_1px,transparent_1px)] bg-[size:24px_24px] -z-10" />
 
       <div className="max-w-6xl mx-auto">
-        <FadeInText className="mb-16">
-          <span className="text-sm font-medium tracking-[0.3em] text-accent mb-4">スポンサー</span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-base-dark">スポンサー</h2>
+        <FadeInText className="mb-12 sm:mb-16">
+          <span className="text-xs sm:text-sm font-medium tracking-[0.3em] text-accent mb-4">スポンサー</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-base-dark">スポンサー</h2>
         </FadeInText>
 
         <StaggerContainer staggerChildren={0.12} delayChildren={0.1}>
           <div className="space-y-14 md:space-y-20">
             {SPONSOR_TIERS.map(({ tier, tierEn, count, className, scroll }) => (
               <motion.div key={tier} variants={staggerItemVariants}>
-                <p className="text-sm font-bold text-base-dark/70 tracking-wider mb-4">{tier} <span className="text-base-dark/40 font-normal">({tierEn})</span></p>
+                <p className="text-xs sm:text-sm font-bold text-base-dark/70 tracking-wider mb-3 sm:mb-4">{tier} <span className="text-base-dark/40 font-normal">({tierEn})</span></p>
                 {scroll ? (
                   <div className="overflow-x-auto -mx-6 md:-mx-16 px-6 md:px-16 scrollbar-hide">
                     <div className="flex gap-4 md:gap-6 items-center pb-2" style={{ width: "max-content" }}>
