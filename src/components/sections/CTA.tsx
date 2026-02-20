@@ -1,6 +1,5 @@
 "use client";
 
-import { Twitter, Bell } from "lucide-react";
 import { FadeInText } from "@/components/animations";
 
 export function CTA() {
@@ -31,21 +30,14 @@ export function CTA() {
         </FadeInText>
 
         <FadeInText delay={0.15}>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-12 px-4">
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-white text-base-dark font-bold hover:bg-accent-yellow transition-all duration-300 border-2 border-base-dark/15 shadow-xl shadow-black/20 hover:shadow-accent-yellow/20 hover:scale-[1.02] min-w-[200px] sm:min-w-0 text-sm sm:text-base whitespace-nowrap"
-            >
-              <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>通知を受け取る</span>
-            </a>
+          <div className="flex items-center justify-center mb-10 sm:mb-12 px-4">
             <a
               href="https://x.com/search?q=%23Hackit"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-white text-base-dark font-bold hover:bg-accent-yellow transition-all duration-300 border-2 border-base-dark/15 shadow-xl shadow-black/20 hover:shadow-accent-yellow/20 hover:scale-[1.02] min-w-[200px] sm:min-w-0 text-sm sm:text-base whitespace-nowrap"
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-white text-base-dark font-bold hover:bg-accent-yellow transition-all duration-300 border-2 border-base-dark/15 shadow-xl shadow-black/20 hover:shadow-accent-yellow/20 hover:scale-[1.02] text-sm sm:text-base whitespace-nowrap"
             >
-              <Twitter className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span className="text-lg sm:text-xl font-bold" aria-hidden>{"\u{1D54F}"}</span>
               <span>#Hackit</span>
             </a>
           </div>
