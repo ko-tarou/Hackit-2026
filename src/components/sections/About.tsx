@@ -137,7 +137,7 @@ export function About() {
 
             <FadeInText delay={0.2}>
               <div className="pt-6 border-t border-base-dark/10">
-                <p className="text-xs sm:text-sm font-medium text-accent tracking-wider mb-4">参加団体</p>
+                <p className="text-xs sm:text-sm font-medium text-accent tracking-wider mb-4">DevelopersHub参加団体</p>
                 <div className="flex flex-wrap gap-2 sm:gap-3 min-w-0">
                   {PARTICIPATING_GROUPS.map((group, index) => (
                     <button
@@ -178,7 +178,7 @@ export function About() {
                 14
               </span>
               <span className="block mt-2 text-xs sm:text-sm font-bold text-accent uppercase tracking-widest">
-                参加団体
+                DevelopersHub参加団体
               </span>
               <p className="mt-1 text-sm sm:text-base md:text-lg text-base-dark/70 max-w-[200px] sm:max-w-[240px] mx-auto">
                 KITの課外活動プロジェクトが連携

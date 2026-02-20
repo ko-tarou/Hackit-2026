@@ -42,5 +42,5 @@ export const SLIDER_PHASES: SliderPhase[] = [
   },
 ];
 
-export const SLIDER_INTERVAL_MS = 4500;
+export const SLIDER_INTERVAL_MS = 7000;
 export const MARQUEE_TEXT = "Hackit 2026 — Connect. Create. Go Beyond.";
