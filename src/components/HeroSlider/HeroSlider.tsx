@@ -140,7 +140,7 @@ export function HeroSlider() {
       setPhaseIndex((prev) => (prev + 1) % SLIDER_PHASES.length);
     }, SLIDER_INTERVAL_MS);
     return () => clearInterval(timer);
-  }, []);
+  }, [phaseIndex]);
 
   return (
     <motion.section
