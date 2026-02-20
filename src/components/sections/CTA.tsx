@@ -20,7 +20,7 @@ export function CTA() {
           <FadeInText>
             <div className="mb-10 sm:mb-12">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-base-dark mb-6 sm:mb-8 tracking-tight px-4">
-                エントリー開始までお待ちください
+                エントリー開始 4/1 までお待ちください
               </h2>
               <p className="text-base-dark/60 text-sm sm:text-base md:text-lg mb-0 max-w-xl sm:max-w-2xl mx-auto leading-relaxed px-4">
                 開催まで今しばらくお待ちください。
