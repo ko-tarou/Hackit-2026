@@ -63,7 +63,7 @@ export function Awards() {
                 variants={staggerItemVariants}
                 className="md:col-span-2 md:row-span-2"
               >
-                <div className="h-full min-h-[280px] md:min-h-full rounded-2xl border-[3px] border-base-dark bg-white p-4 sm:p-6 md:p-10 flex flex-col justify-between shadow-none transition-all duration-300 hover:border-accent">
+                <div className="h-full min-h-[280px] md:min-h-full rounded-2xl border-[3px] border-base-dark bg-white p-4 sm:p-6 md:p-10 flex flex-col justify-between shadow-none">
                   <div className="flex items-start justify-between">
                     <award.icon className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-accent" strokeWidth={2} />
                     <span className="text-[10px] sm:text-xs font-bold tracking-widest text-base-dark/60 border border-base-dark/30 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded">
@@ -87,7 +87,7 @@ export function Awards() {
             {/* 他2賞: 1列ずつ、Brutalism枠のみ */}
             {AWARDS.filter((a) => !a.highlighted).map((award) => (
               <motion.div key={award.id} variants={staggerItemVariants} className="md:col-span-2">
-                <div className="h-full min-h-[140px] sm:min-h-[160px] rounded-2xl border-2 border-base-dark/20 bg-white/60 backdrop-blur-sm p-4 sm:p-6 flex flex-col justify-center transition-all duration-300 hover:border-base-dark/40 hover:bg-white/80">
+                <div className="h-full min-h-[140px] sm:min-h-[160px] rounded-2xl border-2 border-base-dark/20 bg-white/60 backdrop-blur-sm p-4 sm:p-6 flex flex-col justify-center">
                   <award.icon className="w-7 h-7 sm:w-8 sm:h-8 text-accent mb-2 sm:mb-3" strokeWidth={1.5} />
                   <h3 className="text-base sm:text-lg font-bold text-base-dark">{award.name}</h3>
                   <p className="text-xs sm:text-sm text-base-dark/60">{award.subName}</p>
