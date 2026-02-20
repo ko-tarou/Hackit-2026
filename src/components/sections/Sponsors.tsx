@@ -12,7 +12,7 @@ const SPONSOR_TIERS = [
 function SponsorPlaceholder({ className }: { className: string }) {
   return (
     <div
-      className={`rounded-xl bg-white/40 backdrop-blur-md border border-base-dark/10 flex items-center justify-center hover:bg-white/60 hover:border-base-dark/20 transition-all duration-300 ${className}`}
+      className={`rounded-xl bg-white/40 backdrop-blur-md border border-base-dark/10 flex items-center justify-center ${className}`}
     >
       <span className="text-xs text-base-dark/40">Logo</span>
     </div>
