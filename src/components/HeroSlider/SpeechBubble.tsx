@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface SpeechBubbleProps {
   src: string;
@@ -37,11 +38,12 @@ export function SpeechBubble({ src, alt, delay = 0, className = "" }: SpeechBubb
         },
       }}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={src}
         alt={alt}
-        className="w-full h-full object-cover"
+        fill
+        sizes="(max-width: 768px) 50vw, 33vw"
+        className="object-cover"
       />
     </motion.div>
   );
