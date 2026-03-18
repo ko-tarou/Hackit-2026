@@ -10,10 +10,10 @@ export function CTA() {
     >
       {/* 白ベースに淡いアクセントのグラデーション */}
       <div className="absolute inset-0 bg-white -z-10" />
-      <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-1/3 right-1/4 w-56 h-56 bg-accent-yellow/10 rounded-full blur-3xl -z-10" />
-      <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-accent-pink/8 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-1/4 left-1/3 w-48 h-48 bg-accent-blue/8 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-1/3 left-1/4 w-72 h-72 bg-accent/10 rounded-full blur-3xl -z-10" style={{ willChange: "transform" }} />
+      <div className="absolute bottom-1/3 right-1/4 w-56 h-56 bg-accent-yellow/10 rounded-full blur-3xl -z-10" style={{ willChange: "transform" }} />
+      <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-accent-pink/8 rounded-full blur-3xl -z-10" style={{ willChange: "transform" }} />
+      <div className="absolute bottom-1/4 left-1/3 w-48 h-48 bg-accent-blue/8 rounded-full blur-3xl -z-10" style={{ willChange: "transform" }} />
 
       <div className="flex-1 flex flex-col justify-center">
         <div className="max-w-4xl mx-auto text-center">

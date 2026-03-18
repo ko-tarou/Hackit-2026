@@ -52,7 +52,7 @@ export function Schedule() {
                 >
                   <div className="absolute left-3 sm:left-4 md:left-6 top-1 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-accent group-hover:scale-150 group-hover:ring-4 group-hover:ring-accent/30 transition-all -translate-x-1/2 z-10" />
                   <div className="flex flex-col md:flex-row md:items-baseline gap-1 sm:gap-2 md:gap-8">
-                    <span className="text-xs sm:text-sm font-bold text-accent tracking-wider whitespace-nowrap">{item.date}</span>
+                    <time dateTime={item.date.replace(/\./g, "-")} className="text-xs sm:text-sm font-bold text-accent tracking-wider whitespace-nowrap">{item.date}</time>
                     <div className="flex-1">
                       <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-base-dark mb-1 group-hover:text-accent transition-colors">
                         {item.title}

@@ -84,6 +84,7 @@ export function ColorfulOrbs() {
         <motion.div
           key={i}
           className={`absolute rounded-full blur-md ${orb.size} ${orb.color} ${orb.top} ${orb.left} ${orb.right} ${orb.bottom} ${orb.animation}`}
+          style={{ willChange: "transform, opacity" }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{
             opacity: 1,
