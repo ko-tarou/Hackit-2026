@@ -1,6 +1,6 @@
 "use client";
 
-import { FadeInText, StaggerContainer, staggerItemVariants, ParallaxImage } from "@/components/animations";
+import { FadeInText, StaggerContainer, staggerItemVariants } from "@/components/animations";
 import { motion } from "framer-motion";
 
 /** 公開時は true に変更するとスポンサー一覧UIが表示されます */
@@ -47,18 +47,14 @@ export function Sponsors() {
                     <div className="overflow-x-auto -mx-6 md:-mx-16 px-6 md:px-16 scrollbar-hide">
                       <div className="flex gap-4 md:gap-6 items-center pb-2" style={{ width: "max-content" }}>
                         {Array.from({ length: count }).map((_, i) => (
-                          <ParallaxImage key={i} delay={i * 0.05}>
-                            <SponsorPlaceholder className={className} />
-                          </ParallaxImage>
+                          <SponsorPlaceholder key={i} className={className} />
                         ))}
                       </div>
                     </div>
                   ) : (
                     <div className="flex flex-wrap gap-4 md:gap-6">
                       {Array.from({ length: count }).map((_, i) => (
-                        <ParallaxImage key={i} delay={i * 0.06}>
-                          <SponsorPlaceholder className={className} />
-                        </ParallaxImage>
+                        <SponsorPlaceholder key={i} className={className} />
                       ))}
                     </div>
                   )}

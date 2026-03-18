@@ -18,39 +18,11 @@ body {
   background: var(--background);
 }
 
-/* オーバースクロール時（上に引きすぎた時）に表示されるパステルグラデーション */
-@keyframes pastel-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-/* 微細なノイズ感（設計図・エンジニアリングのメタファー） */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(45,45,45,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45,45,45,0.02) 1px, transparent 1px);
-  background-size: 32px 32px;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-/* Smooth scroll & scroll snap & オーバースクロール時のパステル背景 */
+/* Smooth scroll & scroll snap */
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
-  background: linear-gradient(
-    135deg,
-    #fff0f5 0%,
-    #f0f8ff 25%,
-    #f5fff0 50%,
-    #fff8f0 75%,
-    #f5f0ff 100%
-  );
-  background-size: 400% 400%;
-  animation: pastel-shift 8s ease infinite;
+  background: #FFFBF7;
 }
 
 section {

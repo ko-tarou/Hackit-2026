@@ -67,20 +67,7 @@ export function HeroTitle({ dark = false }: HeroTitleProps) {
               },
             }}
           >
-            <motion.span
-              className="inline-block"
-              animate={{
-                y: [0, -4, 0],
-              }}
-              transition={{
-                duration: 2.5 + i * 0.25,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 0.08,
-              }}
-            >
-              {letter}
-            </motion.span>
+            {letter}
           </motion.span>
         ))}
       </motion.div>

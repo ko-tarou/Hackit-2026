@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 /**
  * Yamacs風：カラフルでローテーションする装飾オーブ
  * オレンジ、イエロー、コーラル、ピンク、ブルーを浮遊・回転
@@ -81,37 +79,19 @@ export function ColorfulOrbs() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
       {ORBS.map((orb, i) => (
-        <motion.div
+        <div
           key={i}
-          className={`absolute rounded-full blur-md ${orb.size} ${orb.color} ${orb.top} ${orb.left} ${orb.right} ${orb.bottom} ${orb.animation}`}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-            transition: { duration: 1.2, delay: orb.delay, ease: "easeOut" },
-          }}
+          className={`absolute rounded-full blur-sm ${orb.size} ${orb.color} ${orb.top} ${orb.left} ${orb.right} ${orb.bottom} ${orb.animation}`}
         />
       ))}
-      {/* Yamacs風：回転する円形フレーム */}
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full border-2 border-accent/15"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+      {/* 回転する円形フレーム（GPU composited） */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full border-2 border-accent/15 animate-spin"
+        style={{ animationDuration: "40s" }}
       />
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[550px] md:h-[550px] rounded-full border-2 border-accent-yellow/10"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div
-        className="absolute top-1/2 right-[5%] w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-full border-2 border-accent-coral/15"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div
-        className="absolute bottom-[15%] left-[5%] w-[150px] h-[150px] md:w-[220px] md:h-[220px] rounded-full border-2 border-accent-pink/15"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[550px] md:h-[550px] rounded-full border-2 border-accent-yellow/10 animate-spin direction-reverse"
+        style={{ animationDuration: "35s", animationDirection: "reverse" }}
       />
     </div>
   );

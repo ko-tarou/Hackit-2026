@@ -13,34 +13,39 @@ interface GroupInfo {
 
 const PARTICIPATING_GROUPS: GroupInfo[] = [
   {
-    name: "スマプロ",
-    description: "チーム開発を通してスマートフォンアプリやWebアプリの開発を行います。また、それらのアプリ開発を通して、地域の課題解決を目指すとともにチームメンバーが必要な技術を身につけます。",
-    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#sphone"
+    name: "Science Project for Children",
+    description: "大学生が小中高校生に向けて科学技術の出前講座を実施し、STEAMの楽しさや可能性を伝える活動をしています。学びを「体験」として届け、次世代の科学技術への興味関心を広げることを目指しています。",
+    link: "https://sites.google.com/view/spfc-kit/"
   },
   {
-    name: "フードクリエイション",
-    description: "株式会社ハチバンと協働し、「食」をテーマに、私達の街やパートナーを元気に、そして笑顔にする新しい価値創造を目指す。",
-    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#food8"
-  },
-  {
-    name: "IoA",
-    description: "IoAとは人間の能力をInternetの力で拡張するという概念であり、それがこのプロジェクトの活動のテーマです。主にxR技術の活用に焦点を当て、学科横断でのプロジェクト実践に取り組みます。",
-    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#ioa"
-  },
-  {
-    name: "Security Project",
-    description: "ITセキュリティのスキルアップの勉強会を行い、企業の課題解決提案への取組みやコンピュータやネットワーク機器を使用してのプログラミング、ITセキュリティの実践的な技術を勉強します。",
+    name: "情報セキュリティ・スキルアッププロジェクト",
+    description: "初学者から、ホワイトハッカーへ。セキュリティ領域の基礎を互いに教え合いながら学ぶプロジェクトです！石川県警察との連携を通じて社会のセキュリティ意識の向上に寄与する活動にも取り組んでいます。",
     link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#security-up"
   },
   {
-    name: "CirKit",
-    description: "CirKitプロジェクトは「学生による価値創造と地域社会に貢献を」を理念として活動しています。ほかのプロジェクトと違う点は『株式会社』であることです。",
-    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#cirkit"
+    name: "スマートフォンアプリプロジェクト",
+    description: "スマホ・Webアプリケーション開発を行うプロジェクトです！様々な技術の勉強会や就活情報、成果物の共有なども行っています。実践的な開発経験を積みながら、一緒に成長できるコミュニティです！",
+    link: "#"
+  },
+  {
+    name: "ロボットプロジェクト",
+    description: "夢考房ロボットプロジェクト Team_Roboconでは、NHK学生ロボコンへ向けたロボット作製を行っています。アプリ開発や画像認識など最先端技術を活用し、完全自動ロボットの開発を行っています。",
+    link: "#"
+  },
+  {
+    name: "IoAプロジェクト",
+    description: "主にXR技術の活用に焦点を当て、実践に取り組んでいます。現在はVRによる、CAD・アニメーションソフト・ゲームエンジン、VRヘッドセット活用等の活動を各学生の専門分野に応じて柔軟に実施しています。",
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#ioa"
   },
   {
     name: "おもちゃ",
-    description: "こどもの成長や学びを促すための“おもちゃ”を開発するプロジェクトです。近隣の保育園や児童クラブなどに開発したおもちゃを提供する活動をしています。",
+    description: "こどもが楽しく学び成長できる「おもちゃ」開発を行うプロジェクトです。幼稚園の要望をもとに様々なテーマで開発を進めています。完成したものは実際に施設で遊んでもらい、改良を重ねながら制作しています。",
     link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#toy"
+  },
+  {
+    name: "DataDreamers",
+    description: "夢考房AI・データサイエンスプロジェクトとして、AI・データサイエンスの技術を活用し、社会課題を解決できる人材の育成を目的として活動しています。複数の班に分かれてコンペティションへの参加や勉強会、アプリ開発などに取り組みスキル向上を目指しています。",
+    link: "#"
   },
 ];
 
@@ -220,7 +225,7 @@ export function About() {
 
               {/* カルーセルシーン */}
               <div 
-                className="relative w-full max-w-[200px] xs:max-w-[240px] sm:max-w-md md:max-w-xl h-[280px] xs:h-[300px] sm:h-[350px] md:h-[400px] flex items-center justify-center"
+                className="relative w-full max-w-[200px] xs:max-w-[240px] sm:max-w-md md:max-w-xl h-[340px] xs:h-[360px] sm:h-[420px] md:h-[460px] flex items-center justify-center"
                 style={{ perspective: '1200px' }}
                 onClick={(e) => e.stopPropagation()}
               >
@@ -264,7 +269,7 @@ export function About() {
                       }}
                     >
                       <motion.div
-                        className="bg-white rounded-2xl shadow-2xl p-3 sm:p-6 h-[160px] sm:h-[220px] flex flex-col cursor-pointer overflow-hidden"
+                        className="bg-white rounded-2xl shadow-2xl p-3 sm:p-6 h-[200px] sm:h-[280px] flex flex-col cursor-pointer overflow-hidden"
                         animate={{
                           opacity: isCurrent ? 1 : 0.3,
                         }}
@@ -290,7 +295,7 @@ export function About() {
                               transition={{ duration: 0.3, delay: 0.2 }}
                               className="flex-1 flex flex-col min-h-0"
                             >
-                              <p className="text-[10px] leading-tight sm:text-sm sm:leading-relaxed text-base-dark/70 mb-2 sm:mb-4 flex-1 overflow-hidden line-clamp-3 sm:line-clamp-none">
+                              <p className="text-[10px] leading-tight sm:text-sm sm:leading-relaxed text-base-dark/70 mb-2 sm:mb-4 flex-1 overflow-hidden line-clamp-3 sm:line-clamp-4">
                                 {group.description}
                               </p>
                               
@@ -313,7 +318,7 @@ export function About() {
               </motion.div>
 
                 {/* インジケーター */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-40">
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-40">
                   {PARTICIPATING_GROUPS.map((_, index) => (
                     <button
                       key={index}
