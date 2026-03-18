@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const SCHEDULE_ITEMS = [
   { date: "2026.07.25", title: "キックオフ", description: "キックオフイベント" },
-  { date: "2026.08.01", title: "1日目", description: "アイデアソン / メンター紹介 / ハッキングスタート" },
+  { date: "2026.08.01", title: "1日目", description: "メンター紹介 / ハッキングスタート" },
   { date: "2026.08.02", title: "2日目", description: "ハッキング / 中間発表" },
   { date: "2026.08.03", title: "3日目", description: "最終発表 / 表彰式 / パーティー" },
 ];
