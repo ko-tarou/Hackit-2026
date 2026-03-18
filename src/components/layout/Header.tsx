@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -16,11 +16,23 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const closeMenu = useCallback(() => setIsOpen(false), []);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Escape キーでメニューを閉じる
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMenu();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen, closeMenu]);
 
   const handleNavClick = (href: string) => {
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
@@ -64,7 +76,9 @@ export function Header() {
         <button
           className="md:hidden p-2 text-base-dark hover:text-accent transition-colors"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="メニュー"
+          aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav-menu"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -76,6 +90,8 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            id="mobile-nav-menu"
+            role="menu"
             className="md:hidden mt-2 rounded-2xl bg-white/90 backdrop-blur-xl border border-base-dark/10 shadow-lg overflow-hidden"
           >
             <ul className="px-4 py-4 space-y-2">
