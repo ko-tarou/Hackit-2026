@@ -35,6 +35,8 @@ body::before {
   background-size: 32px 32px;
   pointer-events: none;
   z-index: 9999;
+  will-change: transform;
+  contain: strict;
 }
 
 /* Smooth scroll & scroll snap & オーバースクロール時のパステル背景 */
@@ -51,6 +53,7 @@ html {
   );
   background-size: 400% 400%;
   animation: pastel-shift 8s ease infinite;
+  will-change: background;
 }
 
 section {
