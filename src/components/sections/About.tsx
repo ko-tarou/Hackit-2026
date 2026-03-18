@@ -225,7 +225,7 @@ export function About() {
 
               {/* カルーセルシーン */}
               <div 
-                className="relative w-full max-w-[200px] xs:max-w-[240px] sm:max-w-md md:max-w-xl h-[280px] xs:h-[300px] sm:h-[350px] md:h-[400px] flex items-center justify-center"
+                className="relative w-full max-w-[200px] xs:max-w-[240px] sm:max-w-md md:max-w-xl h-[340px] xs:h-[360px] sm:h-[420px] md:h-[460px] flex items-center justify-center"
                 style={{ perspective: '1200px' }}
                 onClick={(e) => e.stopPropagation()}
               >
@@ -269,7 +269,7 @@ export function About() {
                       }}
                     >
                       <motion.div
-                        className="bg-white rounded-2xl shadow-2xl p-3 sm:p-6 h-[160px] sm:h-[220px] flex flex-col cursor-pointer overflow-hidden"
+                        className="bg-white rounded-2xl shadow-2xl p-3 sm:p-6 h-[200px] sm:h-[280px] flex flex-col cursor-pointer overflow-hidden"
                         animate={{
                           opacity: isCurrent ? 1 : 0.3,
                         }}
@@ -295,7 +295,7 @@ export function About() {
                               transition={{ duration: 0.3, delay: 0.2 }}
                               className="flex-1 flex flex-col min-h-0"
                             >
-                              <p className="text-[10px] leading-tight sm:text-sm sm:leading-relaxed text-base-dark/70 mb-2 sm:mb-4 flex-1 overflow-hidden line-clamp-3 sm:line-clamp-none">
+                              <p className="text-[10px] leading-tight sm:text-sm sm:leading-relaxed text-base-dark/70 mb-2 sm:mb-4 flex-1 overflow-hidden line-clamp-3 sm:line-clamp-4">
                                 {group.description}
                               </p>
                               
@@ -318,7 +318,7 @@ export function About() {
               </motion.div>
 
                 {/* インジケーター */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-40">
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-40">
                   {PARTICIPATING_GROUPS.map((_, index) => (
                     <button
                       key={index}
