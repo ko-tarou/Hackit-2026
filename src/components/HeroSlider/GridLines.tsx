@@ -7,13 +7,13 @@ import { motion } from "framer-motion";
  * dark: パステル背景用に濃い色の線
  */
 export function GridLines({ dark = false }: { dark?: boolean }) {
-  const lines = 15;
+  const lines = 8;
   const horizontalPaths = Array.from({ length: lines }, (_, i) => {
     const y = (100 / (lines + 1)) * (i + 1);
     return `M 0 ${y} L 100 ${y}`;
   });
-  const verticalPaths = Array.from({ length: 20 }, (_, i) => {
-    const x = (100 / 21) * (i + 1);
+  const verticalPaths = Array.from({ length: 10 }, (_, i) => {
+    const x = (100 / 11) * (i + 1);
     return `M ${x} 0 L ${x} 100`;
   });
 
