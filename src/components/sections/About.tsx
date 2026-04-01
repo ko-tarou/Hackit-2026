@@ -245,7 +245,7 @@ export function About() {
 
               {/* カルーセルシーン */}
               <div 
-                className="relative w-full max-w-[200px] xs:max-w-[240px] sm:max-w-md md:max-w-xl h-[340px] xs:h-[360px] sm:h-[420px] md:h-[460px] flex items-center justify-center"
+                className="relative w-full max-w-[180px] xs:max-w-[240px] sm:max-w-md md:max-w-xl h-[280px] xs:h-[300px] sm:h-[420px] md:h-[460px] flex items-center justify-center"
                 style={{ perspective: '1200px' }}
                 onClick={(e) => e.stopPropagation()}
               >
@@ -266,12 +266,12 @@ export function About() {
               >
                 {PARTICIPATING_GROUPS.map((group, index) => {
                   const numberOfCells = PARTICIPATING_GROUPS.length;
-                  const cellSize = typeof window !== 'undefined' && window.innerWidth < 640 ? 240 : 360; // カードの幅（レスポンシブ）
+                  const cellSize = typeof window !== 'undefined' && window.innerWidth < 640 ? 180 : 360; // カードの幅（レスポンシブ）
                   const theta = (360 / numberOfCells);
                   const cellAngle = theta * index;
-                  // 円の半径を計算（1.5倍に拡大してスペースを確保）
+                  // 円の半径を計算（項目数が多い場合は上限を設ける）
                   const baseRadius = Math.round((cellSize / 2) / Math.tan(Math.PI / numberOfCells));
-                  const radius = baseRadius * 1.5;
+                  const radius = Math.min(baseRadius, typeof window !== 'undefined' && window.innerWidth < 640 ? 200 : 350);
                   
                   // 現在のカードが正面かどうか
                   const isCurrent = index === currentIndex;
@@ -284,12 +284,12 @@ export function About() {
                         transformStyle: 'preserve-3d',
                         left: '50%',
                         top: '50%',
-                        width: typeof window !== 'undefined' && window.innerWidth < 640 ? '240px' : '360px',
+                        width: typeof window !== 'undefined' && window.innerWidth < 640 ? '180px' : '360px',
                         transform: `translate(-50%, -50%) rotateY(${cellAngle}deg) translateZ(${radius}px)`,
                       }}
                     >
                       <motion.div
-                        className="bg-white rounded-2xl shadow-2xl p-3 sm:p-6 h-[200px] sm:h-[280px] flex flex-col cursor-pointer overflow-hidden"
+                        className="bg-white rounded-2xl shadow-2xl p-3 sm:p-6 h-[160px] sm:h-[280px] flex flex-col cursor-pointer overflow-hidden"
                         animate={{
                           opacity: isCurrent ? 1 : 0.3,
                         }}
