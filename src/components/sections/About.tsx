@@ -2,7 +2,7 @@
 
 import { FadeInText, StaggerContainer, staggerItemVariants } from "@/components/animations";
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface GroupInfo {
@@ -78,6 +78,14 @@ export function About() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [rotation, setRotation] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleGroupClick = (index: number) => {
     setCurrentIndex(index);
@@ -245,8 +253,8 @@ export function About() {
 
               {/* カルーセルシーン */}
               <div 
-                className="relative w-full max-w-[180px] xs:max-w-[240px] sm:max-w-md md:max-w-xl h-[280px] xs:h-[300px] sm:h-[420px] md:h-[460px] flex items-center justify-center"
-                style={{ perspective: '1200px' }}
+                className="relative w-full max-w-[160px] xs:max-w-[220px] sm:max-w-md md:max-w-xl h-[300px] xs:h-[320px] sm:h-[400px] md:h-[440px] flex items-center justify-center"
+                style={{ perspective: '3000px' }}
                 onClick={(e) => e.stopPropagation()}
               >
               {/* カルーセルコンテナ - 全体を回転 */}
@@ -266,12 +274,12 @@ export function About() {
               >
                 {PARTICIPATING_GROUPS.map((group, index) => {
                   const numberOfCells = PARTICIPATING_GROUPS.length;
-                  const cellSize = typeof window !== 'undefined' && window.innerWidth < 640 ? 180 : 360; // カードの幅（レスポンシブ）
+                  const cellSize = isMobile ? 160 : 320; // カードの幅（レスポンシブ）
                   const theta = (360 / numberOfCells);
                   const cellAngle = theta * index;
-                  // 円の半径を計算（項目数が多い場合は上限を設ける）
+                  // 円の半径を計算（1.5倍で隣接カード間の見かけ距離 > カード幅を保証、15項目程度まで安全）
                   const baseRadius = Math.round((cellSize / 2) / Math.tan(Math.PI / numberOfCells));
-                  const radius = Math.min(baseRadius, typeof window !== 'undefined' && window.innerWidth < 640 ? 200 : 350);
+                  const radius = Math.round(baseRadius * 1.5);
                   
                   // 現在のカードが正面かどうか
                   const isCurrent = index === currentIndex;
@@ -284,12 +292,12 @@ export function About() {
                         transformStyle: 'preserve-3d',
                         left: '50%',
                         top: '50%',
-                        width: typeof window !== 'undefined' && window.innerWidth < 640 ? '180px' : '360px',
+                        width: isMobile ? '160px' : '320px',
                         transform: `translate(-50%, -50%) rotateY(${cellAngle}deg) translateZ(${radius}px)`,
                       }}
                     >
                       <motion.div
-                        className="bg-white rounded-2xl shadow-2xl p-3 sm:p-6 h-[160px] sm:h-[280px] flex flex-col cursor-pointer overflow-hidden"
+                        className="bg-white rounded-2xl shadow-2xl p-3 sm:p-6 h-[180px] sm:h-[260px] flex flex-col cursor-pointer overflow-hidden"
                         animate={{
                           opacity: isCurrent ? 1 : 0.3,
                         }}
