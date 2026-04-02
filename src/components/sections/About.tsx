@@ -25,12 +25,12 @@ const PARTICIPATING_GROUPS: GroupInfo[] = [
   {
     name: "スマートフォンアプリプロジェクト",
     description: "スマホ・Webアプリケーション開発を行うプロジェクトです！様々な技術の勉強会や就活情報、成果物の共有なども行っています。実践的な開発経験を積みながら、一緒に成長できるコミュニティです！",
-    link: "#"
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#sphone"
   },
   {
     name: "ロボットプロジェクト",
     description: "夢考房ロボットプロジェクト Team_Roboconでは、NHK学生ロボコンへ向けたロボット作製を行っています。アプリ開発や画像認識など最先端技術を活用し、完全自動ロボットの開発を行っています。",
-    link: "#"
+    link: "https://www.kanazawa-it.ac.jp/yumekobo/project/04robot.html"
   },
   {
     name: "IoAプロジェクト",
@@ -45,27 +45,27 @@ const PARTICIPATING_GROUPS: GroupInfo[] = [
   {
     name: "DataDreamers",
     description: "夢考房AI・データサイエンスプロジェクトとして、AI・データサイエンスの技術を活用し、社会課題を解決できる人材の育成を目的として活動しています。複数の班に分かれてコンペティションへの参加や勉強会、アプリ開発などに取り組みスキル向上を目指しています。",
-    link: "#"
+    link: "https://www.kanazawa-it.ac.jp/yumekobo/project/01datascience.html"
   },
   {
     name: "フードクリエイションプロジェクト",
     description: "「食の未来を考える」を掲げ、株式会社ハチバンと協働するプロジェクト。ITを活用したポイントサイト「はちぽ」の開発・運用を行うWeb班と、データ分析やSNSマーケティングを担うメニュー班が活動中です。",
-    link: "#"
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#food8"
   },
   {
     name: "CirKitプロジェクト",
     description: "『株式会社』であり、プロジェクトという2つの顔を持ち、「学生による価値創造と地域社会に貢献を」を理念として、Webサービスやホームページの開発・運用をはじめとする多様な事業を行なっています。",
-    link: "#"
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#cirkit"
   },
   {
     name: "RoboCup@Homeプロジェクト",
     description: "人々を幸せにする生活支援ロボットを開発しているプロジェクトです。日々の活動で制作したロボットを検証するため、大会にも出場しています。初心者でも無理なくついていけるよう、新入生教育にも力を入れています。",
-    link: "#"
+    link: "https://www.kanazawa-it.ac.jp/yumekobo/project/11robocuphome.html"
   },
   {
     name: "プログラミング道場",
     description: "競技プログラミングやハッカソンを通じ、仲間と切磋琢磨しながら解決力と実装力を磨くプロジェクトです。初心者の挑戦も大歓迎！1人ではなく、仲間と共に「自ら考え、形にする技術」の習得を目指します。",
-    link: "#"
+    link: "https://www.kanazawa-it.ac.jp/nyusi/honor/program.html#programing"
   },
 ];
 
@@ -323,7 +323,7 @@ export function About() {
                               transition={{ duration: 0.3, delay: 0.2 }}
                               className="flex-1 flex flex-col min-h-0"
                             >
-                              <p className="text-[10px] leading-tight sm:text-sm sm:leading-relaxed text-base-dark/70 mb-2 sm:mb-4 flex-1 overflow-hidden line-clamp-3 sm:line-clamp-4">
+                              <p className="text-[10px] leading-tight sm:text-sm sm:leading-relaxed text-base-dark/70 mb-2 sm:mb-4 flex-1 overflow-hidden line-clamp-5 sm:line-clamp-6">
                                 {group.description}
                               </p>
                               
