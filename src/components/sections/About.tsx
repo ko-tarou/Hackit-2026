@@ -135,6 +135,9 @@ export function About() {
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-base-dark leading-tight">
                 Hackitとは？
               </h2>
+              <p className="mt-4 text-base sm:text-lg text-base-dark/70">
+                KIT Developers Hub主催の交流型ハッカソンです。
+              </p>
             </FadeInText>
 
             <StaggerContainer staggerChildren={0.12} delayChildren={0.2}>

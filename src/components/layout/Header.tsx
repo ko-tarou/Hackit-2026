@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "Hackitとは", href: "#about" },
+  { label: "ハッカソンとは", href: "#hackathon" },
   { label: "賞", href: "#awards" },
   { label: "スポンサー", href: "#sponsors" },
   { label: "スケジュール", href: "#schedule" },
