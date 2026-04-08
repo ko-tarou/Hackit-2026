@@ -4,6 +4,7 @@ import { ScrollProgress } from "@/components/animations";
 import { HeroSlider } from "@/components/HeroSlider";
 
 const About = dynamic(() => import("@/components/sections/About").then((m) => m.About));
+const HackathonInfo = dynamic(() => import("@/components/sections/HackathonInfo").then((m) => m.HackathonInfo));
 const Awards = dynamic(() => import("@/components/sections/Awards").then((m) => m.Awards));
 const Sponsors = dynamic(() => import("@/components/sections/Sponsors").then((m) => m.Sponsors));
 const Schedule = dynamic(() => import("@/components/sections/Schedule").then((m) => m.Schedule));
@@ -16,6 +17,7 @@ export default function Home() {
       <Header />
       <HeroSlider />
       <About />
+      <HackathonInfo />
       <Awards />
       <Sponsors />
       <Schedule />
