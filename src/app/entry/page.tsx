@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import EventForm from "./components/EventForm";
-import DeadlineBanner from "./components/DeadlineBanner";
 
 export default function EntryPage() {
     return (
@@ -30,7 +29,6 @@ export default function EntryPage() {
 
                 {/* Form */}
                 <div className="bg-white bg-opacity-80 rounded-2xl shadow-xl p-6 md:p-10 border-4 border-[#FFD4B0]">
-                    <DeadlineBanner />
                     <EventForm />
                 </div>
 
