@@ -22,8 +22,8 @@ const RULES = [
   },
   {
     icon: Coins,
-    title: "賞金総額10万円",
-    description: "優秀なプロダクトには賞金を贈呈します",
+    title: "豪華賞品あり",
+    description: "優秀なプロダクトには豪華な賞品を贈呈します",
   },
   {
     icon: Briefcase,

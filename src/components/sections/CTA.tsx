@@ -1,6 +1,7 @@
 "use client";
 
 import { FadeInText } from "@/components/animations";
+import { Mail } from "lucide-react";
 
 export function CTA() {
   return (
@@ -47,6 +48,37 @@ export function CTA() {
                 <span className="text-lg sm:text-xl font-bold" aria-hidden>{"\u{1D54F}"}</span>
                 <span>#Hackit</span>
               </a>
+            </div>
+          </FadeInText>
+
+          <FadeInText delay={0.3}>
+            <div className="mt-16 sm:mt-20 pt-10 sm:pt-12 border-t border-base-dark/10 max-w-2xl mx-auto px-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-base-dark mb-3 tracking-tight">
+                お問い合わせ
+              </h3>
+              <p className="text-base-dark/60 text-xs sm:text-sm md:text-base mb-6 sm:mb-8 leading-relaxed">
+                ご質問・取材のお問い合わせはこちらから。
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                <a
+                  href="mailto:haccckit@gmail.com"
+                  aria-label="メールでお問い合わせ（haccckit@gmail.com）"
+                  className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-2xl bg-white text-base-dark font-semibold hover:bg-accent-yellow/40 transition-all duration-300 border-2 border-base-dark/15 shadow-md shadow-black/5 hover:shadow-lg hover:scale-[1.02] text-sm whitespace-nowrap"
+                >
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden />
+                  <span>メールで問い合わせ</span>
+                </a>
+                <a
+                  href="https://x.com/HacKit_KIT"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X (旧Twitter) の @HacKit_KIT を新しいタブで開く"
+                  className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 rounded-2xl bg-white text-base-dark font-semibold hover:bg-accent-yellow/40 transition-all duration-300 border-2 border-base-dark/15 shadow-md shadow-black/5 hover:shadow-lg hover:scale-[1.02] text-sm whitespace-nowrap"
+                >
+                  <span className="text-base sm:text-lg font-bold" aria-hidden>{"\u{1D54F}"}</span>
+                  <span>@HacKit_KIT</span>
+                </a>
+              </div>
             </div>
           </FadeInText>
         </div>
