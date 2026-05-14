@@ -52,7 +52,7 @@ export function Header() {
 
   return (
     <motion.header
-      className="fixed top-2 sm:top-4 left-2 sm:left-4 right-2 sm:right-4 z-50 md:left-1/2 md:right-auto md:-translate-x-1/2 md:max-w-3xl lg:max-w-4xl"
+      className="fixed top-2 sm:top-4 left-2 sm:left-4 right-2 sm:right-4 z-50 md:left-1/2 md:right-auto md:-translate-x-1/2 md:max-w-4xl lg:max-w-5xl"
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4 }}
@@ -66,17 +66,17 @@ export function Header() {
       >
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="text-base sm:text-lg font-bold text-base-dark hover:text-accent transition-colors mr-2 sm:mr-3 md:mr-4 lg:mr-6 whitespace-nowrap flex-shrink-0"
+          className="text-base sm:text-lg font-bold text-base-dark hover:text-accent transition-colors mr-2 sm:mr-3 md:mr-3 lg:mr-5 whitespace-nowrap flex-shrink-0"
         >
           Hackit 2026
         </button>
 
-        <ul className="hidden md:flex items-center gap-2 md:gap-3 lg:gap-4 xl:gap-6 flex-shrink-0">
+        <ul className="hidden md:flex items-center gap-1.5 md:gap-2 lg:gap-3 xl:gap-5 flex-shrink-0">
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
               <button
                 onClick={() => handleNavClick(item.href)}
-                className="text-[11px] lg:text-xs xl:text-sm font-medium text-base-dark/80 hover:text-accent transition-colors whitespace-nowrap px-1"
+                className="text-[10px] md:text-[11px] lg:text-xs xl:text-sm font-medium text-base-dark/80 hover:text-accent transition-colors whitespace-nowrap px-1"
               >
                 {item.label}
               </button>
