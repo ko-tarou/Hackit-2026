@@ -17,6 +17,15 @@ type Sponsor = {
   logo?: string;
   /** スポンサー企業のWebサイトURL（任意） */
   url?: string;
+  /**
+   * ロゴ個別のサイズ微調整（任意）。
+   * ロゴ画像によっては余白やアスペクト比のせいで、同じコンテナサイズでも
+   * 視覚的に小さく見えることがある。その場合に padding を減らす／scale を上げる等の
+   * Tailwind クラスでこのロゴだけ大きく（または小さく）できる。
+   * 既定の `object-contain p-4` に「追記」する形で適用される（グリッドのセルサイズは変えない）。
+   * 例: "p-2 scale-110" で余白を詰めつつ拡大。
+   */
+  imgClassName?: string;
 };
 
 type SponsorTier = {
@@ -35,9 +44,9 @@ const SPONSOR_TIERS: SponsorTier[] = [
     scroll: false,
     sponsors: [
       // logo: "/sponsors/play.png" のように設定するとロゴ表示に切り替わります
-      { name: "PLAY", logo: "/sponsors/play.png" },
-      { name: "DMM", logo: "/sponsors/dmm.png" },
-      { name: "ULSコンサルティング", logo: "/sponsors/uls.png" },
+      { name: "PLAY", logo: "/sponsors/play.png", imgClassName: "p-0 scale-[1.4]" },
+      { name: "DMM", logo: "/sponsors/dmm.png", imgClassName: "p-1 scale-125" },
+      { name: "ULSコンサルティング", logo: "/sponsors/uls.png", imgClassName: "p-3 scale-105" },
     ],
   },
   {
@@ -58,8 +67,8 @@ const SPONSOR_TIERS: SponsorTier[] = [
       { name: "チームラボ", logo: "/sponsors/teamlab.png" },
       { name: "Beta Computing", logo: "/sponsors/beta-computing.png" },
       { name: "MIXI", logo: "/sponsors/mixi.png" },
-      { name: "サイボウズ", logo: "/sponsors/cybozu.png" },
-      { name: "NeoRealX", logo: "/sponsors/neoreal.png" },
+      { name: "サイボウズ", logo: "/sponsors/cybozu.png", imgClassName: "p-1 scale-[1.25]" },
+      { name: "NeoRealX", logo: "/sponsors/neoreal.png", imgClassName: "p-0 scale-[1.4]" },
     ],
   },
 ];
@@ -67,13 +76,16 @@ const SPONSOR_TIERS: SponsorTier[] = [
 function SponsorCard({ sponsor, className }: { sponsor: Sponsor; className: string }) {
   const base = `rounded-xl bg-white/40 backdrop-blur-md border border-base-dark/10 flex items-center justify-center overflow-hidden ${className}`;
 
+  // 既定は object-contain p-4。imgClassName が指定された場合は p-4 を外し、
+  // 個別指定の padding / scale 等で上書きする（コンテナのサイズ自体は変えない）。
+  const imgClass = `object-contain ${sponsor.imgClassName ? sponsor.imgClassName : "p-4"}`;
   const inner = sponsor.logo ? (
     <Image
       src={sponsor.logo}
       alt={sponsor.name}
       fill
       sizes="(max-width: 768px) 50vw, 25vw"
-      className="object-contain p-4"
+      className={imgClass}
     />
   ) : (
     <span className="px-3 text-center font-semibold text-base-dark/80 text-sm md:text-base leading-tight break-words">
