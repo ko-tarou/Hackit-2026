@@ -31,7 +31,7 @@ const SPONSOR_TIERS: SponsorTier[] = [
   {
     tier: "プラチナスポンサー",
     tierEn: "Platinum",
-    className: "w-56 h-28 md:w-72 md:h-36 flex-shrink-0",
+    className: "w-[260px] h-[130px] md:w-[330px] md:h-[165px] flex-shrink-0",
     scroll: false,
     sponsors: [
       // logo: "/sponsors/play.png" のように設定するとロゴ表示に切り替わります
@@ -43,7 +43,7 @@ const SPONSOR_TIERS: SponsorTier[] = [
   {
     tier: "ゴールドスポンサー",
     tierEn: "Gold",
-    className: "w-40 h-20 md:w-52 md:h-26 flex-shrink-0",
+    className: "w-[250px] h-[125px] md:w-[320px] md:h-[160px] flex-shrink-0",
     scroll: false,
     sponsors: [
       { name: "CyberAgent", logo: "/sponsors/cyberagent.png" },
@@ -52,7 +52,7 @@ const SPONSOR_TIERS: SponsorTier[] = [
   {
     tier: "シルバースポンサー",
     tierEn: "Silver",
-    className: "w-28 h-14 md:w-36 md:h-18 flex-shrink-0",
+    className: "w-[240px] h-[120px] md:w-[310px] md:h-[155px] flex-shrink-0",
     scroll: false,
     sponsors: [
       { name: "チームラボ", logo: "/sponsors/teamlab.png" },
