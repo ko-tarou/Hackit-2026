@@ -35,9 +35,9 @@ const SPONSOR_TIERS: SponsorTier[] = [
     scroll: false,
     sponsors: [
       // logo: "/sponsors/play.png" のように設定するとロゴ表示に切り替わります
-      { name: "PLAY" },
-      { name: "DMM" },
-      { name: "ULSコンサルティング" },
+      { name: "PLAY", logo: "/sponsors/play.png" },
+      { name: "DMM", logo: "/sponsors/dmm.png" },
+      { name: "ULSコンサルティング", logo: "/sponsors/uls.png" },
     ],
   },
   {
@@ -46,7 +46,7 @@ const SPONSOR_TIERS: SponsorTier[] = [
     className: "w-40 h-20 md:w-52 md:h-26 flex-shrink-0",
     scroll: false,
     sponsors: [
-      { name: "CyberAgent" },
+      { name: "CyberAgent", logo: "/sponsors/cyberagent.png" },
     ],
   },
   {
@@ -55,11 +55,11 @@ const SPONSOR_TIERS: SponsorTier[] = [
     className: "w-28 h-14 md:w-36 md:h-18 flex-shrink-0",
     scroll: false,
     sponsors: [
-      { name: "チームラボ" },
-      { name: "Beta Computing" },
-      { name: "MIXI" },
-      { name: "サイボウズ" },
-      { name: "NeoRealX" },
+      { name: "チームラボ", logo: "/sponsors/teamlab.png" },
+      { name: "Beta Computing", logo: "/sponsors/beta-computing.png" },
+      { name: "MIXI", logo: "/sponsors/mixi.png" },
+      { name: "サイボウズ", logo: "/sponsors/cybozu.png" },
+      { name: "NeoRealX", logo: "/sponsors/neoreal.png" },
     ],
   },
 ];
