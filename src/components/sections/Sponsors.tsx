@@ -69,6 +69,7 @@ const SPONSOR_TIERS: SponsorTier[] = [
       { name: "MIXI", logo: "/sponsors/mixi.png" },
       { name: "サイボウズ", logo: "/sponsors/cybozu.png", imgClassName: "p-1 scale-[1.25]" },
       { name: "NeoRealX", logo: "/sponsors/neoreal.png", imgClassName: "p-0 scale-[1.4]" },
+      { name: "IT Access", logo: "/sponsors/itaccess.png" },
     ],
   },
 ];
