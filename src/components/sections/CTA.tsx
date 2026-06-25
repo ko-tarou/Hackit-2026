@@ -24,7 +24,7 @@ export function CTA() {
                 エントリー受付中！
               </h2>
               <p className="text-base-dark/60 text-sm sm:text-base md:text-lg mb-0 max-w-xl sm:max-w-2xl mx-auto leading-relaxed px-4">
-                チームまたは個人でエントリーできます。
+                チームでエントリーできます。
                 <br className="hidden sm:inline" />
                 <span className="sm:ml-1">下のボタンからお申し込みください。</span>
               </p>
