@@ -43,9 +43,10 @@ const SPONSOR_TIERS: SponsorTier[] = [
     className: "w-[260px] h-[130px] md:w-[330px] md:h-[165px] flex-shrink-0",
     scroll: false,
     sponsors: [
+      // 企業名のアルファベット順（優劣をなくすため）。
       // logo: "/sponsors/play.png" のように設定するとロゴ表示に切り替わります
-      { name: "PLAY", logo: "/sponsors/play.png", imgClassName: "p-0 scale-[1.4]" },
       { name: "DMM", logo: "/sponsors/dmm.png", imgClassName: "p-1 scale-125" },
+      { name: "PLAY", logo: "/sponsors/play.png", imgClassName: "p-0 scale-[1.4]" },
       { name: "ULSコンサルティング", logo: "/sponsors/uls.png", imgClassName: "p-3 scale-105" },
     ],
   },
@@ -55,12 +56,13 @@ const SPONSOR_TIERS: SponsorTier[] = [
     className: "w-[240px] h-[120px] md:w-[310px] md:h-[155px] flex-shrink-0",
     scroll: false,
     sponsors: [
-      { name: "チームラボ", logo: "/sponsors/teamlab.png" },
+      // 企業名のアルファベット順（優劣をなくすため。日本語名は読みのローマ字基準）。
       { name: "Beta Computing", logo: "/sponsors/beta-computing.png" },
-      { name: "MIXI", logo: "/sponsors/mixi.png" },
       { name: "サイボウズ", logo: "/sponsors/cybozu.png", imgClassName: "p-1 scale-[1.25]" },
-      { name: "NeoRealX", logo: "/sponsors/neoreal.png", imgClassName: "p-0 scale-[1.4]" },
       { name: "IT Access", logo: "/sponsors/itaccess.png" },
+      { name: "MIXI", logo: "/sponsors/mixi.png" },
+      { name: "NeoRealX", logo: "/sponsors/neoreal.png", imgClassName: "p-0 scale-[1.4]" },
+      { name: "チームラボ", logo: "/sponsors/teamlab.png" },
     ],
   },
 ];
