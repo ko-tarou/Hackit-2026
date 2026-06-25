@@ -363,7 +363,6 @@ export default function EventForm() {
                         />
                         <span>無所属</span>
                     </label>
-                    <p className="text-sm text-[#cc5226] mt-2">混合チームの場合、それぞれが個別に申し込んでください。</p>
                 </label>
                 <label className="block">
                     <span className="block text-[#2d2d2d] font-semibold mb-2">チーム人数 <span className="text-red-500">*</span></span>
