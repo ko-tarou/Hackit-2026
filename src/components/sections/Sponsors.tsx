@@ -58,7 +58,6 @@ const SPONSOR_TIERS: SponsorTier[] = [
     sponsors: [
       // 企業名のアルファベット順（優劣をなくすため。日本語名は読みのローマ字基準）。
       { name: "Beta Computing", logo: "/sponsors/beta-computing.png" },
-      { name: "サイボウズ", logo: "/sponsors/cybozu.png", imgClassName: "p-1 scale-[1.25]" },
       { name: "IT Access", logo: "/sponsors/itaccess.png" },
       { name: "MIXI", logo: "/sponsors/mixi.png" },
       { name: "NeoRealX", logo: "/sponsors/neoreal.png", imgClassName: "p-0 scale-[1.4]" },
