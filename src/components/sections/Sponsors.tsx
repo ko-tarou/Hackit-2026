@@ -51,6 +51,15 @@ const SPONSOR_TIERS: SponsorTier[] = [
     ],
   },
   {
+    tier: "ゴールドスポンサー",
+    tierEn: "Gold",
+    className: "w-[250px] h-[125px] md:w-[320px] md:h-[160px] flex-shrink-0",
+    scroll: false,
+    sponsors: [
+      { name: "CyberAgent", logo: "/sponsors/cyberagent.png" },
+    ],
+  },
+  {
     tier: "シルバースポンサー",
     tierEn: "Silver",
     className: "w-[240px] h-[120px] md:w-[310px] md:h-[155px] flex-shrink-0",
