@@ -21,24 +21,16 @@ export function CTA() {
           <FadeInText>
             <div className="mb-10 sm:mb-12">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-base-dark mb-6 sm:mb-8 tracking-tight px-4">
-                エントリー受付中！
+                Hackit 2026、開催終了！
               </h2>
               <p className="text-base-dark/60 text-sm sm:text-base md:text-lg mb-0 max-w-xl sm:max-w-2xl mx-auto leading-relaxed px-4">
-                チームでエントリーできます。
-                <br className="hidden sm:inline" />
-                <span className="sm:ml-1">下のボタンからお申し込みください。</span>
+                たくさんのご参加、ありがとうございました！
               </p>
             </div>
           </FadeInText>
 
           <FadeInText delay={0.15}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
-              <a
-                href="/entry"
-                className="inline-flex items-center gap-2 px-8 sm:px-10 py-3 sm:py-4 rounded-2xl bg-accent text-white font-bold hover:bg-accent/90 transition-all duration-300 shadow-xl shadow-accent/20 hover:shadow-accent/30 hover:scale-[1.02] text-sm sm:text-base whitespace-nowrap"
-              >
-                エントリーする
-              </a>
               <a
                 href="https://x.com/search?q=%23Hackit"
                 target="_blank"
